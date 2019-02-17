@@ -939,7 +939,7 @@ body {
   top: 30px;
   right: 0;
   border-bottom: 10px solid transparent;
-  border-left: 10px solid #099;
+  border-left: 10px solid #f60;
 }
 .article-entry {
   position: relative;
@@ -985,7 +985,7 @@ body {
   margin: 1.1em 0;
 }
 .article-entry a {
-  color: #258fb8;
+  color: #f60;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -1157,7 +1157,7 @@ body {
 .article-more-link:hover {
   opacity: 0.8;
   box-shadow: 0 4px 10px rgba(0,0,0,0.09), 0 4px 10px rgba(0,0,0,0.17);
-  text-shadow: 0 1px #1e7293;
+  text-shadow: 0 1px #cc5200;
 }
 .article-footer {
   font-size: 1em;
@@ -1577,7 +1577,7 @@ body {
   padding: 0 16px 0 35px;
   height: 28px;
   line-height: 28px;
-  color: #727272;
+  color: #f60;
   background: #fff7f2;
   border-radius: 14px;
 }
@@ -1601,7 +1601,7 @@ body {
   margin: 30px 0;
 }
 #comments a {
-  color: #258fb8;
+  color: #f60;
 }
 .nt-list {
   display: none;
@@ -1871,7 +1871,7 @@ body {
   margin-left: 15px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #258fb8;
+  color: #f60;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -2183,7 +2183,7 @@ pre .javascript .function {
   border-radius: 3px;
 }
 .widget a {
-  color: #258fb8;
+  color: #f60;
   text-decoration: none;
 }
 .widget a:hover {
@@ -2274,7 +2274,7 @@ pre .javascript .function {
 .sidebar div:hover {
   opacity: 0.8;
   box-shadow: 0 4px 10px rgba(0,0,0,0.09), 0 4px 10px rgba(0,0,0,0.17);
-  text-shadow: 0 1px #1e7293;
+  text-shadow: 0 1px #cc5200;
 }
 .sidebar-menu-box {
   height: 0;
