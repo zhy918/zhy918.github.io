@@ -909,7 +909,7 @@ body {
   border-left: 4px solid #f60;
   text-decoration: none;
   font-size: 1.3em;
-  color: #444;
+  color: #f60;
   line-height: 1.1em;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -1277,7 +1277,7 @@ body {
 .article-nav-link-wrap {
   text-decoration: none;
   text-shadow: 0 1px #fff;
-  color: #444;
+  color: #f60;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2505,7 +2505,7 @@ pre .javascript .function {
 }
 .post-title-bar ul li a {
   text-decoration: none;
-  color: #999;
+  color: #f60;
 }
 .post-title-bar ul li a:hover {
   color: #f60;
