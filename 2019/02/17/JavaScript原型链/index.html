@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="贝贝张的博客">
 <meta property="og:description" content="JavaScript原型链一、原型对象看以下代码：123function Fun() &amp;#123;&amp;#125;;var fn = new Fun();console.log( fn.__proto__ === Fun.prototype ); // 输出true JavaScript中new一个新的对象实例分三步：123var fn=&amp;#123;&amp;#125;; fn.__proto__=Fun.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zhy918.github.io/images/原型链/1.png">
-<meta property="og:image" content="https://zhy918.github.io/images/原型链/2.png">
-<meta property="og:image" content="https://zhy918.github.io/images/原型链/3.png">
-<meta property="og:image" content="https://zhy918.github.io/images/原型链/4.png">
-<meta property="og:updated_time" content="2019-02-17T14:32:48.501Z">
+<meta property="og:image" content="https://zhy918.github.io/images/JavaScript原型链/1.png">
+<meta property="og:image" content="https://zhy918.github.io/images/JavaScript原型链/2.png">
+<meta property="og:image" content="https://zhy918.github.io/images/JavaScript原型链/3.png">
+<meta property="og:image" content="https://zhy918.github.io/images/JavaScript原型链/4.png">
+<meta property="og:updated_time" content="2019-02-17T14:42:35.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript原型链">
 <meta name="twitter:description" content="JavaScript原型链一、原型对象看以下代码：123function Fun() &amp;#123;&amp;#125;;var fn = new Fun();console.log( fn.__proto__ === Fun.prototype ); // 输出true JavaScript中new一个新的对象实例分三步：123var fn=&amp;#123;&amp;#125;; fn.__proto__=Fun.">
-<meta name="twitter:image" content="https://zhy918.github.io/images/原型链/1.png">
+<meta name="twitter:image" content="https://zhy918.github.io/images/JavaScript原型链/1.png">
   
   
     <link rel="icon" href="favicon.ico">
@@ -158,24 +158,24 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p><img src="https://zhy918.github.io/images/原型链/1.png" alt></p>
+            <p><img src="https://zhy918.github.io/images/JavaScript原型链/1.png" alt></p>
 <h3 id="JavaScript原型链"><a href="#JavaScript原型链" class="headerlink" title="JavaScript原型链"></a>JavaScript原型链</h3><h4 id="一、原型对象"><a href="#一、原型对象" class="headerlink" title="一、原型对象"></a>一、原型对象</h4><p>看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Fun() &#123;&#125;;</span><br><span class="line">var fn = new Fun();</span><br><span class="line">console.log( fn.__proto__ === Fun.prototype ); // 输出true</span><br></pre></td></tr></table></figure></p>
 <p>JavaScript中new一个新的对象实例分三步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn=&#123;&#125;; </span><br><span class="line">fn.__proto__=Fun.prototype; </span><br><span class="line">Fun.call(fn);</span><br></pre></td></tr></table></figure></p>
-<p><code>__proto__</code>属性：<br><img src="https://zhy918.github.io/images/原型链/2.png" alt><br>可见，每个对象new时都会在其内部初始化一个<code>__proto__</code>属性，对象的<code>__proto__</code>属性指向其构造函数的<code>prototype</code>属性，对于对象实例来说，<code>prototype</code>就是它的原型对象。<br><code>prototype</code>属性：<br><img src="https://zhy918.github.io/images/原型链/3.png" alt><br>真实代码里不推荐是使用<code>__proto__</code>属性，因为这是一个设计上的失误，导致 <code>__proto__</code>属性是可以被修改的，同时意味着 JavaScript 的属性查找机制会因此而“瘫痪”，所以强烈的不建议使用它。如果你确实要通过一个对象访问其原型，使用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(fn)</span><br></pre></td></tr></table></figure></p>
+<p><code>__proto__</code>属性：<br><img src="https://zhy918.github.io/images/JavaScript原型链/2.png" alt><br>可见，每个对象new时都会在其内部初始化一个<code>__proto__</code>属性，对象的<code>__proto__</code>属性指向其构造函数的<code>prototype</code>属性，对于对象实例来说，<code>prototype</code>就是它的原型对象。<br><code>prototype</code>属性：<br><img src="https://zhy918.github.io/images/JavaScript原型链/3.png" alt><br>真实代码里不推荐是使用<code>__proto__</code>属性，因为这是一个设计上的失误，导致 <code>__proto__</code>属性是可以被修改的，同时意味着 JavaScript 的属性查找机制会因此而“瘫痪”，所以强烈的不建议使用它。如果你确实要通过一个对象访问其原型，使用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(fn)</span><br></pre></td></tr></table></figure></p>
 <h4 id="二、原型链"><a href="#二、原型链" class="headerlink" title="二、原型链"></a>二、原型链</h4><p>看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log( typeof Fun.prototype ); // 输出Object</span><br><span class="line">console.log( Fun.prototype.__proto__ === Object.prototype ); // 输出true</span><br></pre></td></tr></table></figure></p>
 <p><code>__proto__</code>的作用是在访问一个对象的属性时，如果该对象内部不存在这个属性，就会去该对象的<strong>proto</strong>属性所指向的那个原型对象（父对象）里找，如果原型对象（父对象）也不存在这个属性，则继续往原型对象的<strong>proto</strong>属性所指向的那个原型对象（爷爷对象）里找，如果还没找到，则继续往上找，直到原型链顶端null，若还没找到，则返回undefined，通过对象的<strong>proto</strong>属性一直向上访问属性的一条链即为原型链。。</p>
 <h4 id="三、原型链的顶端"><a href="#三、原型链的顶端" class="headerlink" title="三、原型链的顶端"></a>三、原型链的顶端</h4><p>看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.prototype.__proto__ === Object.prototype); // 输出true</span><br><span class="line">console.log(Number.prototype.__proto__ === Object.prototype); // 输出true</span><br><span class="line">console.log(Boolean.prototype.__proto__ === Object.prototype); // 输出true</span><br><span class="line">console.log(Array.prototype.__proto__ === Object.prototype); // 输出true</span><br><span class="line">console.log(Function.prototype.__proto__ === Object.prototype); // 输出true</span><br><span class="line">console.log(Object.prototype.__proto__ === null) // 输出true</span><br></pre></td></tr></table></figure></p>
 <p>除了<code>Object.prototype</code>本身，对象的原型最终指向<code>Object.prototype</code>，null是原型链的顶端。<code>Object.prototype</code>的原型对象为空，<code>Object.prototype</code>是原型对象的源头，继承由此开始。</p>
 <h4 id="四、函数也是对象"><a href="#四、函数也是对象" class="headerlink" title="四、函数也是对象"></a>四、函数也是对象</h4><p>看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Function.__proto__ === Function.prototype) // 输出true</span><br></pre></td></tr></table></figure></p>
 <p>函数也是对象，<code>JavaScript</code>的内置函数<code>Function</code>也不例外，对象<code>Function</code>的<code>__proto__</code>属性指向的是它的构造函数的<code>prototype</code>属性，<code>Function.prototype</code>即是它的原型对象。</p>
-<h4 id="五、constructor属性"><a href="#五、constructor属性" class="headerlink" title="五、constructor属性"></a>五、constructor属性</h4><p><img src="https://zhy918.github.io/images/原型链/4.png" alt><br>对象才都有<code>constructor</code>属性，<code>constructor</code>在原型链中作为对象<code>prototype</code>的属性存在，它从对象指向对象的构造函数，每个对象都有构造函数。</p>
+<h4 id="五、constructor属性"><a href="#五、constructor属性" class="headerlink" title="五、constructor属性"></a>五、constructor属性</h4><p><img src="https://zhy918.github.io/images/JavaScript原型链/4.png" alt><br>对象才都有<code>constructor</code>属性，<code>constructor</code>在原型链中作为对象<code>prototype</code>的属性存在，它从对象指向对象的构造函数，每个对象都有构造函数。</p>
 <h4 id="六、constructor的顶端"><a href="#六、constructor的顶端" class="headerlink" title="六、constructor的顶端"></a>六、constructor的顶端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.constructor === Function);</span><br><span class="line">console.log(Number.constructor === Function);</span><br><span class="line">console.log(Boolean.constructor === Function);</span><br><span class="line">console.log(Array.constructor === Function);</span><br><span class="line">console.log(Object.constructor === Function);</span><br><span class="line">console.log(Function.constructor === Function);</span><br></pre></td></tr></table></figure>
 <p>可以看出<code>Function</code>的构造函数就是它自己，所有函数最终都是由<code>Function</code>构造得来，所以<code>constructor</code>属性的顶端是<code>Function</code>。</p>
 <h4 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h4><p>1、函数的<code>prototype</code>即是对象的原型对象<br>2、通过对象的<code>__proto__</code>属性一直向上访问<code>prototype</code>属性的一条链即为原型链。<br>3、对象独有的属性：<code>__proto__</code>和<code>constructor</code>；<br>4、函数独有的属性：<code>prototype</code>，但<code>JavaScript</code>中函数也是对象，所以函数也有<code>__proto__</code>和<code>constructor</code>属性；<br>5、<code>constructor</code>属性指向该对象的构造函数，最终指向<code>Function</code>。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年02月17日 22:32</p>
+        <p>最后更新： 2019年02月17日 22:42</p>
         <p>原始链接： <a class="post-url" href="/2019/02/17/JavaScript原型链/" title="JavaScript原型链">https://zhy918.github.io/2019/02/17/JavaScript原型链/</a></p>
         <footer>
             <a href="https://zhy918.github.io">
@@ -233,7 +233,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zhy918.github.io/2019/02/17/JavaScript原型链/&title=《JavaScript原型链》 — 贝贝张的博客&pic=/images/原型链/1.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zhy918.github.io/2019/02/17/JavaScript原型链/&title=《JavaScript原型链》 — 贝贝张的博客&pic=/images/JavaScript原型链/1.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -303,8 +303,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/02/16/Hexo主题MiHo/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Hexo主题MiHo</span>
+    <a href="/2019/02/17/JavaScript闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JavaScript闭包</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -369,7 +369,7 @@
             <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/JavaScript/">JavaScript</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/博客主题/" style="font-size: 10px;">博客主题</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a>
+            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/博客主题/" style="font-size: 10px;">博客主题</a> <a href="/tags/原型链/" style="font-size: 20px;">原型链</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -402,7 +402,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/博客主题/" style="font-size: 10px;">博客主题</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a>
+            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/博客主题/" style="font-size: 10px;">博客主题</a> <a href="/tags/原型链/" style="font-size: 20px;">原型链</a>
         </div>
     </div>
 </div>
