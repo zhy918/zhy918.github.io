@@ -2037,7 +2037,7 @@ pre .javascript .function {
     margin-right: 2px;
     border-radius: 50%;
     display: block;
-    color: #fff;
+    color: #f60;
     line-height: 20px;
   }
   #header-menu .mobile-header-menu-button.active {
@@ -2063,7 +2063,7 @@ pre .javascript .function {
     right: 0;
     height: 100%;
     background: rgba(0,0,0,0.17);
-    color: #fff;
+    color: #f60;
     cursor: default;
     z-index: 1;
     visibility: hidden;
@@ -2078,18 +2078,18 @@ pre .javascript .function {
     font-weight: 400;
     display: block;
     text-align: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #f60;
   }
   .mobile-header-menu-nav .mobile-header-menu-navbar li {
     line-height: 30px;
     font-size: 18px;
     font-weight: 300;
     text-align: left;
-    border-bottom: 1px dotted #fff;
+    border-bottom: 1px dotted #f60;
     margin-top: 5px;
   }
   .mobile-header-menu-nav .mobile-header-menu-navbar li a {
-    color: #fff;
+    color: #f60;
     text-decoration: none;
     display: inline-block;
     width: 100%;
