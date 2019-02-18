@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>计算机网络体系结构 | 贝贝张的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="贝贝张的博客">
+  
+  <meta name="description" content="一、计算机网络的类别1、计算机网络的定义计算机网络：一些互相连接的、自治的计算机集合。 2、几种不同类别的网络1、按网络的作用范围分类 广域网 WAN 城域网 MAN 局域网 LAN 个人区域网 PAN  2、按网络的使用者进行分类 公用网 专用网  3、用来把用户接入因特网的网络这种网络就是接入网 AN，它又被称为本地接入网或居民接入网。 二、计算机网络的性能1、计算机网络的性能指标 速率：连">
+<meta name="keywords" content="计算机网络体系结构,TCP&#x2F;IP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络体系结构">
+<meta property="og:url" content="https://zhy918.github.io/2019/02/18/计算机网络体系结构/index.html">
+<meta property="og:site_name" content="贝贝张的博客">
+<meta property="og:description" content="一、计算机网络的类别1、计算机网络的定义计算机网络：一些互相连接的、自治的计算机集合。 2、几种不同类别的网络1、按网络的作用范围分类 广域网 WAN 城域网 MAN 局域网 LAN 个人区域网 PAN  2、按网络的使用者进行分类 公用网 专用网  3、用来把用户接入因特网的网络这种网络就是接入网 AN，它又被称为本地接入网或居民接入网。 二、计算机网络的性能1、计算机网络的性能指标 速率：连">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zhy918.github.io/images/计算机网络体系结构/1.jpg">
+<meta property="og:image" content="https://zhy918.github.io/images/计算机网络体系结构/1.jpg">
+<meta property="og:image" content="https://zhy918.github.io/images/计算机网络体系结构/2.jpg">
+<meta property="og:image" content="https://zhy918.github.io/images/计算机网络体系结构/3.jpg">
+<meta property="og:updated_time" content="2019-02-18T15:55:20.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络体系结构">
+<meta name="twitter:description" content="一、计算机网络的类别1、计算机网络的定义计算机网络：一些互相连接的、自治的计算机集合。 2、几种不同类别的网络1、按网络的作用范围分类 广域网 WAN 城域网 MAN 局域网 LAN 个人区域网 PAN  2、按网络的使用者进行分类 公用网 专用网  3、用来把用户接入因特网的网络这种网络就是接入网 AN，它又被称为本地接入网或居民接入网。 二、计算机网络的性能1、计算机网络的性能指标 速率：连">
+<meta name="twitter:image" content="https://zhy918.github.io/images/计算机网络体系结构/1.jpg">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?true";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">贝贝张的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/2.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        贝贝张的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        不为无益之事 何以遣有涯之生
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="QQ" target="_blank" href="//qq.com/">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="微信" target="_blank" href="//weixin.com/">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-计算机网络体系结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      计算机网络体系结构
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/计算机网络/">计算机网络</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-18
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><img src="https://zhy918.github.io/images/计算机网络体系结构/1.jpg" alt></p>
+<h3 id="一、计算机网络的类别"><a href="#一、计算机网络的类别" class="headerlink" title="一、计算机网络的类别"></a>一、计算机网络的类别</h3><h4 id="1、计算机网络的定义"><a href="#1、计算机网络的定义" class="headerlink" title="1、计算机网络的定义"></a>1、计算机网络的定义</h4><p>计算机网络：一些互相连接的、自治的计算机集合。</p>
+<h4 id="2、几种不同类别的网络"><a href="#2、几种不同类别的网络" class="headerlink" title="2、几种不同类别的网络"></a>2、几种不同类别的网络</h4><h5 id="1、按网络的作用范围分类"><a href="#1、按网络的作用范围分类" class="headerlink" title="1、按网络的作用范围分类"></a>1、按网络的作用范围分类</h5><ol>
+<li>广域网 WAN</li>
+<li>城域网 MAN</li>
+<li>局域网 LAN</li>
+<li>个人区域网 PAN</li>
+</ol>
+<h5 id="2、按网络的使用者进行分类"><a href="#2、按网络的使用者进行分类" class="headerlink" title="2、按网络的使用者进行分类"></a>2、按网络的使用者进行分类</h5><ol>
+<li>公用网</li>
+<li>专用网</li>
+</ol>
+<h5 id="3、用来把用户接入因特网的网络"><a href="#3、用来把用户接入因特网的网络" class="headerlink" title="3、用来把用户接入因特网的网络"></a>3、用来把用户接入因特网的网络</h5><p>这种网络就是接入网 AN，它又被称为本地接入网或居民接入网。</p>
+<h3 id="二、计算机网络的性能"><a href="#二、计算机网络的性能" class="headerlink" title="二、计算机网络的性能"></a>二、计算机网络的性能</h3><h4 id="1、计算机网络的性能指标"><a href="#1、计算机网络的性能指标" class="headerlink" title="1、计算机网络的性能指标"></a>1、计算机网络的性能指标</h4><ol>
+<li>速率：连接在计算机网络上的主机在数字信道上传送数据的速率，单位为b/s。</li>
+<li>带宽：在计算机网络中，带宽是指在单位时间内，从网络中某一点到另一点所能通过的“最高数据率”，单位为b/s。 </li>
+<li>吞吐量：在单位时间内通过某个网络（或信道、接口）的数据量。</li>
+<li>时延：指数据（一个报文或分组，甚至比特）从网路的一端传到另一端所需要的时间。<ul>
+<li>发送时延：主机或路由器发送数据帧所需要的时间。</li>
+<li>传播时延：电磁波在信道中传播一定的距离所需要的时间。</li>
+<li>处理时延：主机或路由器在收到分组时要花费一定的时间进行处理。</li>
+<li>排队时延：分组在经过网络传输时，要经过许多路由器。但分组在进入路由器后要先在输入队列中排队等待处理。</li>
+</ul>
+</li>
+<li>时延带宽积：传播时延与带宽的乘积。</li>
+<li>往返时间 RTT：从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</li>
+<li>利用率：信道利用率是指某信道有百分之几的时间是被利用的。网络利用率则是全网络的信道利用率的加权平均值。</li>
+</ol>
+<h4 id="2、计算机网络的非性能特征"><a href="#2、计算机网络的非性能特征" class="headerlink" title="2、计算机网络的非性能特征"></a>2、计算机网络的非性能特征</h4><ol>
+<li>费用</li>
+<li>质量</li>
+<li>标准化</li>
+<li>可靠性</li>
+<li>可扩展性和可升级性</li>
+<li>易于管理和维护</li>
+</ol>
+<h3 id="三、计算机网络体系结构"><a href="#三、计算机网络体系结构" class="headerlink" title="三、计算机网络体系结构"></a>三、计算机网络体系结构</h3><h4 id="1、计算机网络体系结构的形成"><a href="#1、计算机网络体系结构的形成" class="headerlink" title="1、计算机网络体系结构的形成"></a>1、计算机网络体系结构的形成</h4><p>为了使不同体系的计算机网络都能互联，国际标准化组织ISO于1977年成立了专门机构研究该问题，不就，著名的开发系统互联基本参考模型OSI/RM，简称OSI，这就是所谓的七层协议的体系结构。但现今规模最大、覆盖全世界的因特网并未使用OSI标准。OSI失败的原因可以归纳为：</p>
+<ul>
+<li>OSI的专家们缺乏实际经验，他们在完成OSI标准时缺乏商业驱动力；</li>
+<li>OSI协议实现起来过分复杂，而且运行效率很低；</li>
+<li>OSI标准的制定周期太长，因而使得按OSI标准生产的设备无法及时进入市场；</li>
+<li>OSI的层次划分不太合理，有些功能在多个层次中重复出现。</li>
+</ul>
+<h4 id="2、协议与划分层次"><a href="#2、协议与划分层次" class="headerlink" title="2、协议与划分层次"></a>2、协议与划分层次</h4><p>网络协议：为进行网络中的数据交换而建立的规则、标准或约定称为网络协议。<br>网络协议主要有一下三个要素组成：</p>
+<ol>
+<li>语法，即数据和控制信息的结构和格式；</li>
+<li>语义，即需要发出何种控制信息，完成何种动作以及做出何种响应；</li>
+<li>同步，即事件实现顺序的详细说明。</li>
+</ol>
+<p>ARPANET的研制经验表明，对于非常复杂的计算机网络协议，其结构应该是层次式的。<br>分层可以代理很多好处。如：</p>
+<ol>
+<li>各层之间是独立的</li>
+<li>灵活性好</li>
+<li>结构上可分割开</li>
+<li>易于实现和维护</li>
+<li>能促进标准化工作<br>通常各层索要完成的功能主要有以下一些：<br> <em>差错控制
+ </em>流量控制<br> <em>分段和重组
+ </em>复用和分用<br> *连接建立的释放<br>分层当然有一些缺点，例如，有些功能在不同的层次中重复出现，因为产生了额外的开销。</li>
+</ol>
+<p>我们把计算机网络各层及其协议的集合，称为计算机网络体系。<br>换种说法，计算机网络的体系结构就是这个计算机网络及其构件所应完成的功能的精确定义。<br>体系结构是抽象的，而实现则是，具体的是真正在运行的计算机硬件和软件。</p>
+<h4 id="3、具有五层协议的体系结构"><a href="#3、具有五层协议的体系结构" class="headerlink" title="3、具有五层协议的体系结构"></a>3、具有五层协议的体系结构</h4><p><img src="https://zhy918.github.io/images/计算机网络体系结构/1.jpg" alt></p>
+<p>学习计算计算机网络原理时往往采用一种只有五层协议的体系结构</p>
+<ol>
+<li>应用层：应用层的任务是通过应用进程间的交互来完成特定网络应用。</li>
+</ol>
+<ul>
+<li>支持万维应用的HTTP协议</li>
+<li>支持电子邮件的SMTP协议</li>
+<li>支持文件传送的FTP协议</li>
+<li>我们将应用层交互的数据单元称为报文</li>
+</ul>
+<ol start="2">
+<li>运输层：负责向两个主机中进程之间的通讯提供通用的数据传输服务。</li>
+</ol>
+<ul>
+<li>复用：多个应用层进程同时使用下面的运输服务</li>
+<li>分用：运输层把收到的信息分别交付上面应用层中的相应进程</li>
+<li>传输控制协议TCP–提供面向连接的、可靠的数据传输服务，数据传输单位为报文段</li>
+<li>用户数据报协议UDP–提供无连接的、尽最大努力的数据传输服务（不保证数据传输的可靠性），数据传输的单位是用户数据报</li>
+</ul>
+<ol start="3">
+<li>网络层（网际层/IP层）：负责为分组交换网上的不同主机提供通讯服务。</li>
+</ol>
+<ul>
+<li>网络层把运输层产生的报文段或用户数据报封装成分组（也称IP数据报）或包进行传送</li>
+<li>因特网主要的网络层协议是无连接的网际协议IP（IP协议）</li>
+</ul>
+<ol start="4">
+<li><p>数据链路层：将网络层交下来的IP数据报组装成帧，在两个相邻节点间的链路上传送帧。每一帧包括数据和必要的控制信息（如同步信息、地址信息、差错控制等）。</p>
+</li>
+<li><p>物理层：透明地传输比特流（0/1），传递信息所利用的物理媒介（如双绞线、同轴电缆、光缆、无线信道等）不在物理层，而是在物理层之下，有人称之为第0层。</p>
+</li>
+</ol>
+<p>在因特网所使用的协议中，最重要的和最著名的就是TCP和IP两个协议。现在人们经常提到的TCP/IP并不一定单指TCP和IP两个协议，而往往表示因特网所使用的TCP/IP协议族。<br>数据在各层之间的传输过程：<br><img src="https://zhy918.github.io/images/计算机网络体系结构/2.jpg" alt></p>
+<h4 id="4、实体、协议、服务和服务访问点"><a href="#4、实体、协议、服务和服务访问点" class="headerlink" title="4、实体、协议、服务和服务访问点"></a>4、实体、协议、服务和服务访问点</h4><ul>
+<li>实体：任何可发送或接受信息的硬件或软件进程。</li>
+<li>协议：控制两个对等实体（或多个实体）进行通信的规则的集合。</li>
+<li>在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议还需要使用下面一层所提供的服务。</li>
+<li>协议的实现保证向上层提供服务。使用本层服务的实体只能看见服务而无法看见下面的协议，下面的协议对上面是透明的。</li>
+<li>协议是“水平的”，即协议是控制对等实体之间通讯的规则。</li>
+<li>服务是“垂直的”，即服务是由下层向上层通过层间接口提供的。</li>
+<li>在同一系统中相邻两层的实体进行交互（即信息交换）的地方，通常称为服务访问点SAP。</li>
+<li>看一个计算机网络协议是否正确，不能只看正常情况下是否正确，而且还必须非常仔细地检查这个协议能否应付各种异常情况。</li>
+</ul>
+<h4 id="5、TCP-IP体系结构"><a href="#5、TCP-IP体系结构" class="headerlink" title="5、TCP/IP体系结构"></a>5、TCP/IP体系结构</h4><p>TCP/IP体系结构只有4层，从上往下依次是：应用层、运输层、网际层、网络接口层。<br><img src="https://zhy918.github.io/images/计算机网络体系结构/3.jpg" alt><br>TCP/IP协议可以为各式各样的应用提供服务，同时TCP/IP协议也允许IP协议在各式各样的网络构成的互联网上运行。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年02月18日 23:55</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/18/计算机网络体系结构/" title="计算机网络体系结构">https://zhy918.github.io/2019/02/18/计算机网络体系结构/</a></p>
+        <footer>
+            <a href="https://zhy918.github.io">
+                <img src="/images/2.jpg" alt="贝贝张">
+                贝贝张
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zhy918.github.io/2019/02/18/计算机网络体系结构/&title=《计算机网络体系结构》 — 贝贝张的博客&pic=/images/计算机网络体系结构/1.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zhy918.github.io/2019/02/18/计算机网络体系结构/&title=《计算机网络体系结构》 — 贝贝张的博客&source=贝贝张的博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://zhy918.github.io/2019/02/18/计算机网络体系结构/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《计算机网络体系结构》 — 贝贝张的博客&url=https://zhy918.github.io/2019/02/18/计算机网络体系结构/&via=https://zhy918.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://zhy918.github.io/2019/02/18/计算机网络体系结构/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://zhy918.github.io/2019/02/18/计算机网络体系结构/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/计算机网络体系结构/" class="color5">计算机网络体系结构</a>
+      
+    <a href="/tags/TCP/IP/" class="color2">TCP/IP</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、计算机网络的类别"><span class="post-toc-text">一、计算机网络的类别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、计算机网络的定义"><span class="post-toc-text">1、计算机网络的定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、几种不同类别的网络"><span class="post-toc-text">2、几种不同类别的网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1、按网络的作用范围分类"><span class="post-toc-text">1、按网络的作用范围分类</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、按网络的使用者进行分类"><span class="post-toc-text">2、按网络的使用者进行分类</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3、用来把用户接入因特网的网络"><span class="post-toc-text">3、用来把用户接入因特网的网络</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、计算机网络的性能"><span class="post-toc-text">二、计算机网络的性能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、计算机网络的性能指标"><span class="post-toc-text">1、计算机网络的性能指标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、计算机网络的非性能特征"><span class="post-toc-text">2、计算机网络的非性能特征</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、计算机网络体系结构"><span class="post-toc-text">三、计算机网络体系结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、计算机网络体系结构的形成"><span class="post-toc-text">1、计算机网络体系结构的形成</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、协议与划分层次"><span class="post-toc-text">2、协议与划分层次</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、具有五层协议的体系结构"><span class="post-toc-text">3、具有五层协议的体系结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、实体、协议、服务和服务访问点"><span class="post-toc-text">4、实体、协议、服务和服务访问点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、TCP-IP体系结构"><span class="post-toc-text">5、TCP/IP体系结构</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/02/18/Vue CLI 3.x搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Vue CLI 3.x搭建
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/17/JavaScript原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JavaScript原型链</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 贝贝张<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://zhy918.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="分类">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Vue/">Vue</a><a class="category-link" href="/categories/计算机网络/">计算机网络</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-CLI-3-X/" style="font-size: 10px;">Vue CLI 3.X</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/计算机网络体系结构/" style="font-size: 10px;">计算机网络体系结构</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">菜单</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">标签</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-CLI-3-X/" style="font-size: 10px;">Vue CLI 3.X</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/计算机网络体系结构/" style="font-size: 10px;">计算机网络体系结构</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="搜索文章标题" id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
