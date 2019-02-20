@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>原生JS实现Ajax | 贝贝张的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="贝贝张的博客">
+  
+  <meta name="description" content="一、Ajax技术Ajax 可以在实现页面局部更新，用于提高用户体验。Ajax 技术的核心是 XMLHttpRequest 对象。 二、XMLHttpRequest对象XMLHttpRequest 对象的主要属性有：  onreadystatechange：每次状态改变所触发事件的事件处理程序； responseText：从服务器进程返回数据的字符串形式； responseXML：从服务器进程返回">
+<meta name="keywords" content="Ajax,Ajax封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JS实现Ajax">
+<meta property="og:url" content="https://zhy918.github.io/2019/02/19/原生JS实现Ajax/index.html">
+<meta property="og:site_name" content="贝贝张的博客">
+<meta property="og:description" content="一、Ajax技术Ajax 可以在实现页面局部更新，用于提高用户体验。Ajax 技术的核心是 XMLHttpRequest 对象。 二、XMLHttpRequest对象XMLHttpRequest 对象的主要属性有：  onreadystatechange：每次状态改变所触发事件的事件处理程序； responseText：从服务器进程返回数据的字符串形式； responseXML：从服务器进程返回">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zhy918.github.io/images/原生JS实现Ajax/2.jpg">
+<meta property="og:updated_time" content="2019-02-20T14:18:15.822Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生JS实现Ajax">
+<meta name="twitter:description" content="一、Ajax技术Ajax 可以在实现页面局部更新，用于提高用户体验。Ajax 技术的核心是 XMLHttpRequest 对象。 二、XMLHttpRequest对象XMLHttpRequest 对象的主要属性有：  onreadystatechange：每次状态改变所触发事件的事件处理程序； responseText：从服务器进程返回数据的字符串形式； responseXML：从服务器进程返回">
+<meta name="twitter:image" content="https://zhy918.github.io/images/原生JS实现Ajax/2.jpg">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?true";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">贝贝张的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/2.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        贝贝张的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        不为无益之事 何以遣有涯之生
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="QQ" target="_blank" href="//qq.com/">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="微信" target="_blank" href="//weixin.com/">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-原生JS实现Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      原生JS实现Ajax
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaScript/">JavaScript</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><img src="https://zhy918.github.io/images/原生JS实现Ajax/2.jpg" alt></p>
+<h3 id="一、Ajax技术"><a href="#一、Ajax技术" class="headerlink" title="一、Ajax技术"></a>一、Ajax技术</h3><p>Ajax 可以在实现页面局部更新，用于提高用户体验。<br>Ajax 技术的核心是 XMLHttpRequest 对象。</p>
+<h3 id="二、XMLHttpRequest对象"><a href="#二、XMLHttpRequest对象" class="headerlink" title="二、XMLHttpRequest对象"></a>二、XMLHttpRequest对象</h3><p>XMLHttpRequest 对象的主要属性有：</p>
+<ul>
+<li>onreadystatechange：每次状态改变所触发事件的事件处理程序；</li>
+<li>responseText：从服务器进程返回数据的字符串形式；</li>
+<li>responseXML：从服务器进程返回的 DOM 兼容的文档数据对象；</li>
+<li>status：从服务器返回的数字代码，常见的200（客户端请求成功，已就绪）和 404（请求资源不存在）</li>
+<li>statusText：伴随状态码的字符串信息 （eg：200 OK）</li>
+</ul>
+<p>readyState 对象状态值：</p>
+<ul>
+<li>0（未初始化状态）对象已建立或已被 abort() 方法重置，尚未调用 open 方法。</li>
+<li>1（初始化状态）open() 方法已经调用，但是send() 方法为调用。请求还没有被发送。</li>
+<li>2（发送数据）send() 方法法以调用，HTTP 请求已发送到 Web 服务器。未接收到响应。</li>
+<li>3（数据传送中）所有响应头部都已经接收到。响应体开始接受但未完成。</li>
+<li>4（完成加载） HTTP 响应已经完全接收。</li>
+</ul>
+<h3 id="三、Ajax封装"><a href="#三、Ajax封装" class="headerlink" title="三、Ajax封装"></a>三、Ajax封装</h3><ul>
+<li>封装：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">function Ajax(options) &#123;</span><br><span class="line">    // 处理实际参数</span><br><span class="line">    options = options || &#123;&#125;;</span><br><span class="line">    // 将请求方式转换成大写</span><br><span class="line">    options.type = (options.type || &quot;GET&quot;).toUpperCase();</span><br><span class="line">    // 请求参数类型</span><br><span class="line">    options.dataType = options.dataType || &quot;json&quot;;</span><br><span class="line">    // 格式化参数</span><br><span class="line">    var params = formatParams(options.data);</span><br><span class="line">    var xhr;</span><br><span class="line"></span><br><span class="line">    // 第一步，实例化内置对象XMLHttpRequest或ActiveXObject（IE6及以下）</span><br><span class="line">    if (window.XMLHttpRequest) &#123;</span><br><span class="line">        xhr = new XMLHttpRequest();</span><br><span class="line">    &#125; else if (window.ActiveObject) &#123; </span><br><span class="line">        //IE6及以下</span><br><span class="line">        xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 第二步，请求方式</span><br><span class="line">    if (options.type == &quot;GET&quot;) &#123;</span><br><span class="line">        // GET请求的open和send设置</span><br><span class="line">        xhr.open(&quot;GET&quot;, options.url + &quot;?&quot; + params, true);</span><br><span class="line">        xhr.send(null);</span><br><span class="line">    &#125; else if (options.type == &quot;POST&quot;) &#123;</span><br><span class="line">        // POST请求的open、请求头和send设置</span><br><span class="line">        xhr.open(&quot;POST&quot;, options.url, true);</span><br><span class="line">        xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">        xhr.send(params);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 第三步，判断readyState状态，接受响应</span><br><span class="line">    xhr.onreadystatechange = function () &#123;</span><br><span class="line">        if (xhr.readyState == 4) &#123;</span><br><span class="line">            var status = xhr.status;</span><br><span class="line">            if (status &gt;= 200 &amp;&amp; status &lt; 300 || status == 304) &#123;</span><br><span class="line">                options.success &amp;&amp; options.success(xhr.responseText, xhr.responseXML);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                options.error &amp;&amp; options.error(status);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="四、Ajax调用"><a href="#四、Ajax调用" class="headerlink" title="四、Ajax调用"></a>四、Ajax调用</h3><ul>
+<li>调用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Ajax(&#123;</span><br><span class="line">	//请求地址</span><br><span class="line">	url: &quot;./TestXHR.aspx&quot;,</span><br><span class="line">		//请求方式</span><br><span class="line">	type: &quot;POST&quot;, </span><br><span class="line">	//请求参数</span><br><span class="line">	data: &#123;</span><br><span class="line">		name: &quot;大娃&quot;,</span><br><span class="line">		age: 8</span><br><span class="line">	&#125;, </span><br><span class="line">	//请求参数类型</span><br><span class="line">	dataType: &quot;json&quot;,</span><br><span class="line">	success: function (response, xml) &#123;</span><br><span class="line">	// 请求成功执行的代码</span><br><span class="line"></span><br><span class="line">	&#125;,</span><br><span class="line">	error: function (status) &#123;</span><br><span class="line">	// 请求失败执行的代码</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五、Ajax的缺点"><a href="#五、Ajax的缺点" class="headerlink" title="五、Ajax的缺点"></a>五、Ajax的缺点</h3><ul>
+<li>Ajax 的缺点：<br>1、Ajax使浏览器机制被破坏，Back与History功能失效，在动态更新页面的情况下，用户无法回到前一页的页面状态，因为浏览器仅能记忆历史纪录中的静态页面。<br>2、安全问题：AJAX技术给用户带来很好的用户体验的同时也对IT企业带来了新的安全威胁，Ajax技术就如同对企业数据建立了一个直接通道。这使得开发者在不经意间会暴露比以前更多的数据和服务器逻辑。<br>3、对搜索引擎支持较弱。<br>4、破坏程序的异常处理机制。<br>5、违背URL与资源定位的初衷。<br>6、不能很好地支持移动设备。<br>7、客户端肥大，太多客户段代码造成开发上的成本。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年02月20日 22:18</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/19/原生JS实现Ajax/" title="原生JS实现Ajax">https://zhy918.github.io/2019/02/19/原生JS实现Ajax/</a></p>
+        <footer>
+            <a href="https://zhy918.github.io">
+                <img src="/images/2.jpg" alt="贝贝张">
+                贝贝张
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/&title=《原生JS实现Ajax》 — 贝贝张的博客&pic=/images/原生JS实现Ajax/1.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/&title=《原生JS实现Ajax》 — 贝贝张的博客&source=贝贝张的博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生JS实现Ajax》 — 贝贝张的博客&url=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/&via=https://zhy918.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://zhy918.github.io/2019/02/19/原生JS实现Ajax/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Ajax/" class="color5">Ajax</a>
+      
+    <a href="/tags/Ajax封装/" class="color2">Ajax封装</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、Ajax技术"><span class="post-toc-text">一、Ajax技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、XMLHttpRequest对象"><span class="post-toc-text">二、XMLHttpRequest对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、Ajax封装"><span class="post-toc-text">三、Ajax封装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、Ajax调用"><span class="post-toc-text">四、Ajax调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、Ajax的缺点"><span class="post-toc-text">五、Ajax的缺点</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/02/19/HTML5 Canvas/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          HTML5 Canvas
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/19/html5/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">HTML5</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 贝贝张<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://zhy918.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="分类">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/HTML5/">HTML5</a><a class="category-link" href="/categories/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Vue/">Vue</a><a class="category-link" href="/categories/计算机网络/">计算机网络</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Ajax封装/" style="font-size: 10px;">Ajax封装</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTML5-Canvas/" style="font-size: 10px;">HTML5 Canvas</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-CLI-3-X/" style="font-size: 10px;">Vue CLI 3.X</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/计算机网络体系结构/" style="font-size: 10px;">计算机网络体系结构</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">菜单</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">标签</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Ajax封装/" style="font-size: 10px;">Ajax封装</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTML5-Canvas/" style="font-size: 10px;">HTML5 Canvas</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-CLI-3-X/" style="font-size: 10px;">Vue CLI 3.X</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/计算机网络体系结构/" style="font-size: 10px;">计算机网络体系结构</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="搜索文章标题" id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
